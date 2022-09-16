@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class MvcController {
-
-
-    @GetMapping("/mvc")
+    @GetMapping
     public ResponseEntity<String> getOffer() {
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
 }

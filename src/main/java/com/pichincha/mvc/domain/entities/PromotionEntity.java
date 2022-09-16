@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,5 +36,5 @@ public class PromotionEntity implements Serializable {
     Double percentage;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "promotion")
-    private List<ProductEntity> products;
+    List<ProductEntity> products;
 }

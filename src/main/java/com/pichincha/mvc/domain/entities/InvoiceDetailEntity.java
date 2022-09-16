@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +21,7 @@ public class InvoiceDetailEntity implements Serializable {
     @Column(nullable = false, unique = true)
     Long id;
 
+    @Column(name = "PRODUCT_ID", nullable = false)
     Long productId;
 
     @Column(name = "PRODUCT_NAME", nullable = false)
@@ -40,5 +41,5 @@ public class InvoiceDetailEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID", nullable = false, updatable = false)
-    private InvoiceEntity invoice;
+    InvoiceEntity invoice;
 }

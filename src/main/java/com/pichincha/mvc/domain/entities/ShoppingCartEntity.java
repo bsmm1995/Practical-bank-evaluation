@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import com.pichincha.mvc.domain.enums.ShoppingCartStatus;
 import lombok.Getter;
@@ -28,8 +28,8 @@ public class ShoppingCartEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID", nullable = false, updatable = false)
-    private CustomerEntity customer;
+    CustomerEntity customer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
-    private List<ProductEntity> products;
+    List<ProductEntity> products;
 }

@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,8 +27,8 @@ public class InvoiceEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID", nullable = false, updatable = false)
-    private CustomerEntity customer;
+    CustomerEntity customer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoice")
-    private List<InvoiceDetailEntity> detail;
+    List<InvoiceDetailEntity> detail;
 }

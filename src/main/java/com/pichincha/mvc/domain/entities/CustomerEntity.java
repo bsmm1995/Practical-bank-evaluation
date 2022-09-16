@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -32,8 +32,8 @@ public class CustomerEntity implements Serializable {
     String dni;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private List<InvoiceEntity> invoices;
+    List<InvoiceEntity> invoices;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private List<ShoppingCartEntity> carts;
+    List<ShoppingCartEntity> carts;
 }

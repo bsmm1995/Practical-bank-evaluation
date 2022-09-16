@@ -1,4 +1,4 @@
-package com.pichincha.mvc.domain;
+package com.pichincha.mvc.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -32,9 +32,9 @@ public class ProductEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "SHOPPING_CART_ID", nullable = false, updatable = false)
-    private ShoppingCartEntity shoppingCart;
+    ShoppingCartEntity shoppingCart;
 
     @ManyToOne
     @JoinColumn(name = "PROMOTION_ID", updatable = false)
-    private PromotionEntity promotion;
+    PromotionEntity promotion;
 }
