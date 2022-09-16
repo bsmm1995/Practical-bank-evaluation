@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: false
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:validation
+    username: validation
+    password: validation
+    driverClassName: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_schema:
+    hibernate:
+      ddl-auto: create-drop
+      show-sql: true
+  flyway:
+    enabled: false
+
+
+application:
+  header:
+    channel: digital
+    medium: web

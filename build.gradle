@@ -1,0 +1,73 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.8'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "org.sonarqube" version "3.3"
+	id 'jacoco'
+}
+
+group = 'com.pichincha.mvc'
+version = '0.0.1'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+
+group = 'com.pichincha.staffig'
+version = '0.0.0'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'com.microsoft.ews-java-api:ews-java-api:2.0'
+	implementation 'javax.xml.ws:jaxws-api:2.2.11'
+	runtimeOnly 'org.postgresql:postgresql'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	implementation 'org.springframework.security:spring-security-oauth2-authorization-server:0.2.3'
+	
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'com.auth0:jwks-rsa:0.21.1'
+	implementation 'com.auth0:java-jwt:3.19.1'
+}
+
+test {
+	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+	reports {
+		xml.required = true
+		csv.required = false
+		html.required = true
+		xml.destination file("${buildDir}/jacoco/test.xml")
+		html.destination file("${buildDir}/jacoco/html")
+	}
+	
+	dependsOn test
+}
