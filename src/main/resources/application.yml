@@ -4,9 +4,9 @@ spring:
       enabled: false
       path: /h2
   datasource:
-    url: jdbc:h2:mem:validation
-    username: validation
-    password: validation
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
     driverClassName: org.h2.Driver
   jpa:
     properties:

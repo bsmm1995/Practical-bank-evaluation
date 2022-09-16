@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -33,4 +34,7 @@ public class PromotionEntity implements Serializable {
 
     @Column(nullable = false)
     Double percentage;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promotion")
+    private List<ProductEntity> products;
 }

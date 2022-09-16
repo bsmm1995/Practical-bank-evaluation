@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -21,11 +22,13 @@ public class InvoiceEntity implements Serializable {
     @Column(nullable = false, unique = true)
     Long id;
 
-    @Column(name = "CUSTOMER_ID", nullable = false)
-    Long customerId;
-
     @Column(nullable = false)
     Double total;
 
-    Double discount = 0.0;
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID", nullable = false, updatable = false)
+    private CustomerEntity customer;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoice")
+    private List<InvoiceDetailEntity> detail;
 }

@@ -21,6 +21,8 @@ public class InvoiceDetailEntity implements Serializable {
     @Column(nullable = false, unique = true)
     Long id;
 
+    Long productId;
+
     @Column(name = "PRODUCT_NAME", nullable = false)
     String productName;
 
@@ -35,4 +37,8 @@ public class InvoiceDetailEntity implements Serializable {
 
     @Column(nullable = false)
     Double discount = 0.0;
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID", nullable = false, updatable = false)
+    private InvoiceEntity invoice;
 }

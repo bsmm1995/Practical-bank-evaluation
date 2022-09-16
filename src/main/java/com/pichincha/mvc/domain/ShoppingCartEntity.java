@@ -1,11 +1,13 @@
 package com.pichincha.mvc.domain;
 
+import com.pichincha.mvc.domain.enums.ShoppingCartStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -13,8 +15,8 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @Setter
 @FieldDefaults(level = PRIVATE)
-@Entity(name = "PRODUCT")
-public class ProductEntity implements Serializable {
+@Entity(name = "SHOPPING_CAR")
+public class ShoppingCartEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,19 +24,12 @@ public class ProductEntity implements Serializable {
     Long id;
 
     @Column(nullable = false)
-    String name;
-
-    @Column(nullable = false)
-    String price;
-
-    @Column(nullable = false)
-    Double quantity;
+    ShoppingCartStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "SHOPPING_CART_ID", nullable = false, updatable = false)
-    private ShoppingCartEntity shoppingCart;
+    @JoinColumn(name = "CUSTOMER_ID", nullable = false, updatable = false)
+    private CustomerEntity customer;
 
-    @ManyToOne
-    @JoinColumn(name = "PROMOTION_ID", updatable = false)
-    private PromotionEntity promotion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
+    private List<ProductEntity> products;
 }
