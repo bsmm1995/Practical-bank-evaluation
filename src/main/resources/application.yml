@@ -1,25 +1,17 @@
 spring:
-  h2:
-    console:
-      enabled: false
-      path: /h2
-  datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-  jpa:
-    properties:
-      hibernate:
-        default_schema:
-    hibernate:
-      ddl-auto: create-drop
-      show-sql: true
-  flyway:
-    enabled: false
-
-
-application:
-  header:
-    channel: digital
-    medium: web
+    datasource:
+        driverClassName: org.h2.Driver
+        password: ''
+        url: jdbc:h2:mem:test
+        username: sa
+    h2:
+        console:
+            enabled: true
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        defer-datasource-initialization: true
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+                use_sql_comments: true
