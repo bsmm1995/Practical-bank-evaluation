@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Setter
 @FieldDefaults(level = PRIVATE)
 @Entity(name = "INVOICE_DETAIL")
-public class InvoicedETAILEntity implements Serializable {
+public class InvoiceDetailEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
