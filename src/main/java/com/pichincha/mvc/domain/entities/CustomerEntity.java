@@ -22,13 +22,13 @@ public class CustomerEntity implements Serializable {
     @Column(nullable = false, unique = true)
     Long id;
 
-    @Column(name = "LAST_NAME", nullable = false)
+    @Column(nullable = false)
     String name;
 
-    @Column(name = "LAST_NAME", nullable = false)
+    @Column(name = "LAST_NAME")
     String lastName;
 
-    @Column(name = "DNI", nullable = false)
+    @Column(nullable = false)
     String dni;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
