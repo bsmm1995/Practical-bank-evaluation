@@ -27,9 +27,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO create(CustomerDTO data) {
+    public Long create(CustomerDTO data) {
         CustomerEntity entity = this.toEntity(data);
-        return this.toDto(customerRepository.save(entity));
+        return this.toDto(customerRepository.save(entity)).getId();
     }
 
     @Override

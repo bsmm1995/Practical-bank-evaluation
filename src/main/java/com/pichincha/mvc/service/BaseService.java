@@ -7,7 +7,7 @@ public interface BaseService<T, I> {
 
     List<T> getAll();
 
-    T create(T data);
+    I create(T data);
 
     T update(I recordId, T data);
 
