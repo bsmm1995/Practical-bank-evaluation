@@ -1,4 +1,6 @@
 package com.pichincha.mvc.service;
 
-public interface CustomerService {
+import com.pichincha.mvc.domain.dto.CustomerDTO;
+
+public interface CustomerService extends BaseService<CustomerDTO, Long> {
 }
