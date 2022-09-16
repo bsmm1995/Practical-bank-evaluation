@@ -51,7 +51,6 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(recordId).orElseThrow();
     }
 
-
     private CustomerDTO toDto(CustomerEntity entity) {
         return Mapper.modelMapper().map(entity, CustomerDTO.class);
     }
