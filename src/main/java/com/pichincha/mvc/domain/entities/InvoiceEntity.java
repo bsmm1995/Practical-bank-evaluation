@@ -25,6 +25,9 @@ public class InvoiceEntity implements Serializable {
     @Column(nullable = false)
     Double total;
 
+    @Column(nullable = false)
+    Double discount = 0.0;
+
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID", nullable = false, updatable = false)
     CustomerEntity customer;
