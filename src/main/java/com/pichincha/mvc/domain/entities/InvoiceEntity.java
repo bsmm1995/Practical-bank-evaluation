@@ -16,7 +16,6 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE)
 @Entity(name = "INVOICE")
 public class InvoiceEntity implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
@@ -24,6 +23,9 @@ public class InvoiceEntity implements Serializable {
 
     @Column(nullable = false)
     Double total;
+
+    @Column(name = "TOTAL_PAID", nullable = false)
+    Double totalPaid;
 
     @Column(nullable = false)
     Double discount = 0.0;

@@ -13,6 +13,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class InvoiceDTO implements Serializable {
     Long id;
     Double total;
+    Double totalPaid;
     CustomerOutDTO customer;
     List<InvoiceDetailDTO> detail;
 }

@@ -9,13 +9,11 @@ import java.io.Serializable;
 
 import static lombok.AccessLevel.PRIVATE;
 
-
 @Getter
 @Setter
 @FieldDefaults(level = PRIVATE)
 @Entity(name = "INVOICE_DETAIL")
 public class InvoiceDetailEntity implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
@@ -35,9 +33,6 @@ public class InvoiceDetailEntity implements Serializable {
 
     @Column(nullable = false)
     Double total;
-
-    @Column(nullable = false)
-    Double discount = 0.0;
 
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID", nullable = false, updatable = false)
